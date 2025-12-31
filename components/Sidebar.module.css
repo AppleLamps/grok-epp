@@ -1,0 +1,234 @@
+.sidebar {
+  width: 288px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border-soft);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(255, 250, 242, 0.96), rgba(244, 239, 229, 0.75));
+  box-shadow: 24px 0 40px rgba(16, 18, 22, 0.08);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+.sidebar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(420px 420px at -10% 12%, rgba(180, 83, 9, 0.18), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.top {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  border-bottom: 1px solid rgba(16, 18, 22, 0.08);
+  position: relative;
+  z-index: 1;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brandMark {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #101216, #3a2316);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.brandTitle {
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  color: var(--app-fg);
+  line-height: 1.1;
+}
+
+.brandSubtitle {
+  font-size: 0.8125rem;
+  color: var(--ink-700);
+}
+
+.primaryButton {
+  width: 100%;
+  border: 1px solid #101216;
+  background: #101216;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 0.7rem 0.9rem;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.primaryButton:hover {
+  background: #0b0d12;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.14);
+}
+
+.primaryButton:active {
+  transform: translateY(0);
+}
+
+.list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.empty {
+  padding: 0.75rem;
+  color: var(--ink-700);
+  font-size: 0.875rem;
+}
+
+.item,
+.itemActive {
+  text-align: left;
+  width: 100%;
+  border: 1px solid rgba(16, 18, 22, 0.12);
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  padding: 0.75rem 0.75rem;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+
+.item:hover {
+  transform: translateY(-1px);
+  border-color: rgba(16, 18, 22, 0.32);
+  box-shadow: 0 10px 22px rgba(16, 18, 22, 0.12);
+}
+
+.itemActive {
+  background: linear-gradient(140deg, #101216, #2f1f16);
+  border-color: #101216;
+  color: #fff;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+.itemTop {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.itemTitle {
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.itemTime {
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+
+.itemMeta {
+  margin-top: 0.25rem;
+  font-size: 0.8125rem;
+  opacity: 0.65;
+}
+
+.bottom {
+  padding: 0.9rem 1rem;
+  border-top: 1px solid rgba(16, 18, 22, 0.08);
+  position: relative;
+  z-index: 1;
+}
+
+.secondaryButton {
+  width: 100%;
+  border: 1px solid rgba(16, 18, 22, 0.2);
+  background: transparent;
+  color: var(--app-fg);
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 0.65rem 0.9rem;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.secondaryButton:hover {
+  background: rgba(16, 18, 22, 0.06);
+  border-color: rgba(16, 18, 22, 0.35);
+}
+
+.primaryButton:focus-visible,
+.secondaryButton:focus-visible,
+.item:focus-visible,
+.itemActive:focus-visible {
+  outline: 3px solid rgba(180, 83, 9, 0.35);
+  outline-offset: 2px;
+}
+
+.topRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.closeButton {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  color: var(--app-fg);
+  cursor: pointer;
+  border-radius: 12px;
+  transition: background 0.15s ease;
+}
+
+.closeButton:hover {
+  background: rgba(16, 18, 22, 0.08);
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transform: translateX(-100%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: none;
+  }
+
+  .sidebarOpen {
+    transform: translateX(0);
+    box-shadow: 24px 0 60px rgba(16, 18, 22, 0.25);
+  }
+
+  .closeButton {
+    display: flex;
+  }
+}
+
